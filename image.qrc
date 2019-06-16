@@ -1,0 +1,28 @@
+<RCC>
+  <qresource prefix="image">
+    <file>button/automatic1.png</file>
+    <file>button/automatic2.png</file>
+    <file>button/automatic3.png</file>
+    <file>button/forward1.png</file>
+    <file>button/forward2.png</file>
+    <file>button/forward3.png</file>
+    <file>button/left1.png</file>
+    <file>button/left2.png</file>
+    <file>button/left3.png</file>
+    <file>button/retreat1.png</file>
+    <file>button/retreat2.png</file>
+    <file>button/retreat3.png</file>
+    <file>button/right1.png</file>
+    <file>button/right2.png</file>
+    <file>button/right3.png</file>
+    <file>button/start1.png</file>
+    <file>button/start2.png</file>
+    <file>button/start3.png</file>
+    <file>button/stop1.png</file>
+    <file>button/stop2.png</file>
+    <file>button/stop3.png</file>
+    <file>button/tracking1.png</file>
+    <file>button/tracking2.png</file>
+    <file>button/tracking3.png</file>
+  </qresource>
+</RCC>
