@@ -1,13 +1,11 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-# from IntelligentCar import *
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtCore, QtGui, QtWidgets
-from camera import Ui_MainWindow
 
 
-class MyWindow(QMainWindow, Ui_MainWindow):
+class MyWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
         self.initUI(self)
