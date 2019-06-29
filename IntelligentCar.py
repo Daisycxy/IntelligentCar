@@ -1,9 +1,24 @@
 import sys
+import pymysql
+import time
+import socket
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+# 连接mysql
+db = pymysql.connect("localhost", "root", "Question0901-", "my_db", charset='utf8')
+# 设置游标
+# cursor = db.cursor()
+# sql语句
+# cursor.execute("SELECT py FROM my_db.directive")
+# 设置游标
+#设置数组
+arrr=["w","a","s","d",""]
+#判断状态 0为初始化，1为普通，2为自动，3为普通
+flag=0;
 
 class MyWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -128,7 +143,7 @@ class MyWindow(QMainWindow):
         self.left.setText(_translate("MainWindow", " "))
         self.right.setText(_translate("MainWindow", " "))
         self.stop.setText(_translate("MainWindow", " "))
-        self.label_3.setText(_translate("MainWindow", "智能小车"))
+        self.label_3.setText(_translate("MainWindow", "---"))
         self.label_4.setText(_translate("MainWindow", "自动行驶"))
         self.label_5.setText(_translate("MainWindow", "TextLabel"))
     @pyqtSlot()
@@ -139,14 +154,39 @@ class MyWindow(QMainWindow):
     def on_click3(self):
         print("循迹行驶")
     def on_click4(self):
+        cursor = db.cursor()
+        cursor.execute("update car set id=id+1 where id>=1")
+        cursor.execute("update car set bc=bc+2 where bc>=1")
+        cursor.execute("INSERT INTO car values('1','w','1')");
+        db.commit();
         print("前进")
     def on_click5(self):
+        cursor = db.cursor()
+        cursor.execute("update car set id=id+1 where id>=1")
+        cursor.execute("update car set bc=bc+2 where bc>=1")
+        cursor.execute("INSERT INTO car values('1','s','1')");
+        db.commit();
         print("后退")
     def on_click6(self):
+        cursor = db.cursor()
+        cursor.execute("update my_db.car set id=id+1 where id>=1")
+        cursor.execute("update my_db.car set bc=bc+2 where bc>=1")
+        cursor.execute("INSERT INTO car values('1','a','1')");
+        db.commit();
         print("左转")
     def on_click7(self):
+        cursor = db.cursor()
+        cursor.execute("update my_db.car set id=id+1 where id>=1")
+        cursor.execute("update my_db.car set bc=bc+2 where bc>=1")
+        cursor.execute("INSERT INTO car values('1','d','1')");
+        db.commit();
         print("右转")
     def on_click8(self):
+        cursor = db.cursor()
+        cursor.execute("update my_db.car set id=id+1 where id>=1")
+        cursor.execute("update my_db.car set bc=bc+2 where bc>=1")
+        cursor.execute("INSERT INTO car values('1','0','1')");
+        db.commit();
         print("停止")
 if __name__ == '__main__':
     app = QApplication(sys.argv)
