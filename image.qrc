@@ -24,5 +24,12 @@
     <file>button/tracking1.png</file>
     <file>button/tracking2.png</file>
     <file>button/tracking3.png</file>
+    <file>button/open_conn1.png</file>
+    <file>button/open_conn2.png</file>
+    <file>button/open_conn3.png</file>
+    <file>button/disconn1.png</file>
+    <file>button/disconn2.png</file>
+    <file>button/disconn3.png</file>
+
   </qresource>
 </RCC>
