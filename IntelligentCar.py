@@ -158,6 +158,7 @@ class MyWindow(QMainWindow):
         self.label_4.setText(_translate("MainWindow", "---"))
         self.disconn.setText(_translate("MainWindow", "断开连接"))
         self.open_conn.setText(_translate("MainWindow", "开启连接"))
+        
     @pyqtSlot()
     def on_click1(self):
         flag=1
