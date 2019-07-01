@@ -3,6 +3,7 @@ from collections import deque
 import numpy as np
 
 import time
+import socket
 
 # import imutils
 
@@ -10,6 +11,10 @@ import cv2
 
 # 设定红色阈值，HSV空间
 from sklearn.externals.joblib.numpy_pickle_utils import xrange
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+arrr=["w","a","s","d",""]
+
 
 redLower = np.array([170, 100, 100])
 
@@ -32,9 +37,10 @@ camera = cv2.VideoCapture(0)
 time.sleep(3)
 
 # 遍历每一帧，检测红色瓶盖
-
+m = 0
+n = 0
 while True:
-
+    m = m + 1
     # 读取帧
 
     (ret, frame) = camera.read()
@@ -130,11 +136,29 @@ while True:
             (dirX, dirY) = ("", "")
 
             if np.abs(dX) > 20:
-                dirX = "East"; print("右") if np.sign(dX) == 1 else "West";print("左");
-
+                # dirX = "East" if np.sign(dX) == 1 else "West"
+                if np.sign(dX) == 1:
+                    dirX = "East"
+                    if(m % 10 == 0):
+                        print("右")
+                        #s.sendto(arrr[3].encode(), ("192.168.12.1", 2000))
+                else:
+                    dirX = "West"
+                    if (m % 10 == 0):
+                        print("左")
+                        #s.sendto(arrr[1].encode(), ("192.168.12.1", 2000))
             if np.abs(dY) > 20:
-                dirY = "North";print("前") if np.sign(dY) == 1 else "South";print("前")
-
+                # dirY = "North" if np.sign(dY) == 1 else "South"
+                if np.sign(dY) == 1:
+                    dirY = "North"
+                    if (m % 10 == 0):
+                        print("前")
+                        #s.sendto(arrr[0].encode(), ("192.168.12.1", 2000))
+                else:
+                    dirY = "South"
+                    if (m % 10 == 0):
+                        print("后")
+                        #s.sendto(arrr[2].encode(), ("192.168.12.1", 2000))
             if dirX != "" and dirY != "":
 
                 direction = "{}-{}".format(dirY, dirX)
