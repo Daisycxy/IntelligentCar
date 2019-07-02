@@ -156,25 +156,20 @@ class MyWindow(QMainWindow):
         self.stop.setText(_translate("MainWindow", " "))
         self.label_3.setText(_translate("MainWindow", "---"))
         self.label_4.setText(_translate("MainWindow", "---"))
-        self.disconn.setText(_translate("MainWindow", "断开连接"))
-        self.open_conn.setText(_translate("MainWindow", "开启连接"))
+        self.disconn.setText(_translate("MainWindow", ""))
+        self.open_conn.setText(_translate("MainWindow", ""))
         
     @pyqtSlot()
     def on_click1(self):
-        flag=1
-        self.label_4.setText("普通模式")
-        print("开始")
+            self.label_4.setText("普通模式")
+            print("开始")
     def on_click2(self):
-        flag=2
-        if flag==2:
             self.label_4.setText("自动行驶")
             print("自动行驶")
     def on_click3(self):
-        flag=3
         self.label_4.setText("循迹行驶")
         print("循迹行驶")
     def on_click4(self):
-        if flag==1:
             cursor = db.cursor()
             cursor.execute("update car set id=id+1 where id>=1")
             cursor.execute("update car set bc=bc+2 where bc>=1")
@@ -183,7 +178,6 @@ class MyWindow(QMainWindow):
             print("前进")
     def on_click5(self):
         #普通模式
-        if flag==1:
             cursor = db.cursor()
             cursor.execute("update car set id=id+1 where id>=1")
             cursor.execute("update car set bc=bc+2 where bc>=1")
@@ -193,7 +187,6 @@ class MyWindow(QMainWindow):
 
     def on_click6(self):
         #普通模式
-        if flag == 1:
             cursor = db.cursor()
             cursor.execute("update my_db.car set id=id+1 where id>=1")
             cursor.execute("update my_db.car set bc=bc+2 where bc>=1")
@@ -202,7 +195,6 @@ class MyWindow(QMainWindow):
             print("左转")
     def on_click7(self):
         # 普通模式
-        if flag == 1:
             cursor = db.cursor()
             cursor.execute("update my_db.car set id=id+1 where id>=1")
             cursor.execute("update my_db.car set bc=bc+2 where bc>=1")
